@@ -23,6 +23,10 @@ pub fn get(position: usize) -> u32 {
     fibonacci().skip(position).take(1).collect::<Vec<u32>>()[0]
 }
 
+pub fn first(size: usize) -> Vec<u32> {
+    fibonacci().take(size).collect::<Vec<u32>>()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -41,4 +45,10 @@ mod tests {
     fn fifth_from_pub() {
         assert_eq!(get(4), 5);
     }
+
+    #[test]
+    fn first_five_from_pub() {
+        assert_eq!(first(5), vec![1, 1, 2, 3, 5]);
+    }
+
 }
