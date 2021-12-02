@@ -27,6 +27,10 @@ pub fn first(size: usize) -> Vec<u32> {
     fibonacci().take(size).collect::<Vec<u32>>()
 }
 
+pub fn partition(position: usize, size: usize) -> Vec<u32> {
+    fibonacci().skip(position).take(size).collect::<Vec<u32>>()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -51,4 +55,8 @@ mod tests {
         assert_eq!(first(5), vec![1, 1, 2, 3, 5]);
     }
 
+    #[test]
+    fn second_five_from_pub() {
+        assert_eq!(partition(5, 5), vec![8, 13, 21, 34, 55]);
+    }
 }
